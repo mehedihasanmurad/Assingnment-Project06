@@ -36,6 +36,10 @@ const displayNewNewsLoad = catagories => {
         <h1>${catagories.length} items found for category Entertainment</h1>
     `;
     
+    countContainer.appendChild(div);
+    catagories.sort((a,b) => {
+        return b.total_view - a.total_view;
+    })
     catagories.forEach(items => {
         // console.log(items)
         const detailDiv = document.createElement('div');
