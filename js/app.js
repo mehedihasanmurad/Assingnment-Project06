@@ -41,7 +41,7 @@ const displayNewNewsLoad = catagories => {
         return b.total_view - a.total_view;
     })
     catagories.forEach(items => {
-        // console.log(items)
+        console.log(items)
         const detailDiv = document.createElement('div');
         detailDiv.classList.add('card', 'lg:card-side', 'bg-base-100', 'shadow-xl', 'mt-5')
         detailDiv.innerHTML = `
@@ -50,9 +50,19 @@ const displayNewNewsLoad = catagories => {
           <h2 class="card-title">${items.title}</h2>
           <p>${items.details.slice(0, 400) + '...'}</p>
           <p>Total View: ${items.total_view}</p>
-          <img src = "">
+          <div class = "flex mt-12">
+          <img src = "${items.author.img}" class = "h-10 w-10 rounded-full mt-2">
+          <div class = "pl-4">
+          <h1>${items.author.name}</h1>
+          <p>${items.author.published_date}</p>
+          </div>
+          <h1 class = "ml-32 mt-4"><i class="fa-regular fa-eye"></i> 1.5M</h1>
+          <div class = "mt-4 ml-32">
+          <p><i class="fa-solid fa-star p-2"></i> <i class="fa-regular fa-star p-2"></i> <i class="fa-regular fa-star p-2"></i> <i class="fa-regular fa-star p-2"></i> <i class="fa-regular fa-star p-2"></i></p>
+          </div>
+          </div>
           <div class="card-actions justify-end">
-            <label onclick="modalDetails('${items._id}')" for="my-modal-6" class="btn btn-primary btn-sm modal-button">Details</label>
+            <label onclick="modalDetails('${items._id}')" for="my-modal-6" class=" btn-sm modal-button"><i class=" fa-solid fa-arrow-right"></i></label>
           </div>
         </div>
         `;
