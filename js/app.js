@@ -24,6 +24,25 @@ const newNewsLoad = () => {
     .then(data => displayNewNewsLoad(data.data))
 }
 
-
+const displayNewNewsLoad = catagories => {
+    const newsContainer = document.getElementById('new-container');
+    newsContainer.innerHTML = '';
+    catagories.forEach(items => {
+        console.log(items)
+        const detailDiv = document.createElement('div');
+        detailDiv.classList.add('card', 'lg:card-side', 'bg-base-100', 'shadow-xl', 'mt-5')
+        detailDiv.innerHTML = `
+        <figure><img src="${items.thumbnail_url}" alt="Album"/></figure>
+        <div class="card-body">
+          <h2 class="card-title">${items.title}</h2>
+          <p>${items.details}</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Listen</button>
+          </div>
+        </div>
+        `;
+        newsContainer.appendChild(detailDiv);
+    })
+}
 
 newsLoad();
