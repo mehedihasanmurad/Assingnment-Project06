@@ -41,7 +41,7 @@ const displayNewNewsLoad = catagories => {
         return b.total_view - a.total_view;
     })
     catagories.forEach(items => {
-        console.log(items)
+        // console.log(items)
         const detailDiv = document.createElement('div');
         detailDiv.classList.add('card', 'lg:card-side', 'bg-base-100', 'shadow-xl', 'mt-5')
         detailDiv.innerHTML = `
@@ -89,7 +89,7 @@ const displayModalDetail = data => {
     <label for="my-modal-6" class="btn">Yay!</label>
     </div>
     </div>
-    `
-}
+    `;
+};
 
 newsLoad();
